@@ -1,0 +1,31 @@
+import './App.css';
+import { useDispatch } from 'react-redux';
+import { increment } from './reducers/counterReducer';
+import ViewCounter from './components/ViewCounter';
+
+/**
+ * Store - Håller vårt state
+ * Reducer - Som uppdaterar vårt state
+ * Action - Som säger vad ska vi uppdatera
+ * Dispatch - Som triggar en action och uppdatering av state från en komponent
+ */
+
+function App() {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(increment(1));
+  }
+
+  return (
+    <>
+      <h1>Räknare</h1>
+      <ViewCounter />
+      <section>
+        <button onClick={handleClick}>Öka med 1</button>
+      </section>
+    </>
+  );
+}
+
+export default App;
