@@ -15,10 +15,13 @@ const counterSlice = createSlice({
       console.log("Action är: ", action);
       state.value += action.payload;
     },
+    decrement(state, action) {
+      state.value -= action.payload;
+    }
     // Här kan vi lägga till fler reducers för att uppdatera vårt state ex. decrement
   },
 });
 
-export const { increment } = counterSlice.actions;
+export const { increment, decrement } = counterSlice.actions;
 
 export default counterSlice.reducer;

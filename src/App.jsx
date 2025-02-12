@@ -1,6 +1,6 @@
 import './App.css';
 import { useDispatch } from 'react-redux';
-import { increment } from './reducers/counterReducer';
+import { increment, decrement } from './reducers/counterReducer';
 import ViewCounter from './components/ViewCounter';
 
 /**
@@ -17,12 +17,19 @@ function App() {
     dispatch(increment(1));
   }
 
+  function handleDecrement() {
+    dispatch(decrement(1));
+  }
+
   return (
     <>
       <h1>Räknare</h1>
       <ViewCounter />
       <section>
         <button onClick={handleClick}>Öka med 1</button>
+      </section>
+      <section>
+        <button onClick={handleDecrement}>Minska med 1</button>
       </section>
     </>
   );
